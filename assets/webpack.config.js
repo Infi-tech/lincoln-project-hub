@@ -31,6 +31,10 @@ module.exports = (env, options) => ({
       {
         test: /\.css$/,
         use: [MiniCssExtractPlugin.loader, 'css-loader']
+      },
+      {
+        test: /\.(jpe?g|png|gif|svg|eot|woff|woff2|ttf)$/i,
+        loader: 'file-loader?name=app/images/[name].[ext]'
       }
     ]
   },
