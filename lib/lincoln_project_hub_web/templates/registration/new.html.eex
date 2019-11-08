@@ -1,15 +1,23 @@
-<%= form_for @changeset, Routes.signup_path(@conn, :create), fn f -> %>
-  <%= label f, :email, "email" %>
-  <%= email_input f, :email %>
-  <%= error_tag f, :email %>
-
-  <%= label f, :password, "password" %>
-  <%= password_input f, :password %>
-  <%= error_tag f, :password %>
-
-  <%= label f, :confirm_password, "confirm_password" %>
-  <%= password_input f, :confirm_password %>
-  <%= error_tag f, :confirm_password %>
-
-  <%= submit "Register" %>
-<% end %>
+<div class="ui ordered  stackable three top attached steps">
+  <div class="step">
+    <div class="content">
+      <div class="title">Personal Details</div>
+      <div class="description">Name,Age,Class,School</div>
+    </div>
+  </div>
+  <div class="active step">
+    <div class="content">
+      <div class="title">Guardian & Emergency Details</div>
+      <div class="description">Email,Phone Number</div>
+    </div>
+  </div>
+  <div class="disabled step">
+    <div class="content">
+      <div class="title">Account Details</div>
+      <div class="description">Email & Password</div>
+    </div>
+  </div>
+</div>
+<div class="ui attached segment">
+  <p></p>
+</div>

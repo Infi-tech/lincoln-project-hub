@@ -8,7 +8,8 @@
   "dependencies": {
     "phoenix": "file:../deps/phoenix",
     "phoenix_html": "file:../deps/phoenix_html",
-    "semantic-ui": "^2.4.2"
+    "semantic-ui": "^2.4.2",
+    "semantic-ui-icon": "^2.3.3"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
