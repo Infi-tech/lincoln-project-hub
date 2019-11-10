@@ -31,6 +31,10 @@ defmodule LincolnProjectHubWeb.Router do
     plug :put_layout, {LincolnProjectHubWeb.LayoutView, "ambassador.html"}
   end
 
+  pipeline :supervisor do
+    plug :put_layout, {LincolnProjectHubWeb.LayoutView, "supervisor.html"}
+  end
+
   scope "/", LincolnProjectHubWeb do
     pipe_through [:browser, :not_authenticated]
 
@@ -55,6 +59,11 @@ defmodule LincolnProjectHubWeb.Router do
   scope "/amb", LincolnProjectHubWeb do
     pipe_through [:browser, :not_authenticated, :ambassador]
     get "/", AmbassadorController, :index
+  end
+
+  scope "/sup", LincolnProjectHubWeb do
+    pipe_through [:browser, :not_authenticated, :supervisor]
+    get "/", SupervisorController, :index
   end
 
   # Other scopes may use custom stacks.
