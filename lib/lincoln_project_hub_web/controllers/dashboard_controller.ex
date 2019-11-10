@@ -1,4 +1,4 @@
-defmodule LincolnProjectHubWeb.AmbassadorController do
+defmodule LincolnProjectHubWeb.DashboardController do
   use LincolnProjectHubWeb, :controller
 
   def index(conn, _params) do

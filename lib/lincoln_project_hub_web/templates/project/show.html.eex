@@ -1,0 +1,28 @@
+<h1>Show Project</h1>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @project.name %>
+  </li>
+
+  <li>
+    <strong>Description:</strong>
+    <%= @project.description %>
+  </li>
+
+  <li>
+    <strong>Start date:</strong>
+    <%= @project.start_date %>
+  </li>
+
+  <li>
+    <strong>End date:</strong>
+    <%= @project.end_date %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.project_path(@conn, :edit, @project) %></span>
+<span><%= link "Back", to: Routes.project_path(@conn, :index) %></span>
