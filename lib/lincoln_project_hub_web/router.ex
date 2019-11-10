@@ -23,6 +23,10 @@ defmodule LincolnProjectHubWeb.Router do
       error_handler: LincolnProjectHubWeb.AuthErrorHandler
   end
 
+  pipeline :admin do
+    plug :put_layout, {LincolnProjectHubWeb.LayoutView, "admin.html"}
+  end
+
   scope "/", LincolnProjectHubWeb do
     pipe_through [:browser, :not_authenticated]
 
@@ -37,6 +41,11 @@ defmodule LincolnProjectHubWeb.Router do
     pipe_through [:browser, :protected]
 
     delete "/logout", SessionController, :delete, as: :logout
+  end
+
+  scope "/admin", LincolnProjectHubWeb do
+    pipe_through [:browser, :not_authenticated, :admin]
+    get "/", AdminController, :index
   end
 
   # Other scopes may use custom stacks.
