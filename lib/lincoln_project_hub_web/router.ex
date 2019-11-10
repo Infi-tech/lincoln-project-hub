@@ -38,7 +38,8 @@ defmodule LincolnProjectHubWeb.Router do
   scope "/", LincolnProjectHubWeb do
     pipe_through [:browser, :not_authenticated]
 
-    get "/", PageController, :index
+    # get "/", PageController, :index
+    get "/", SessionController, :new, as: :login
     get "/signup", RegistrationController, :new, as: :signup
     post "/signup", RegistrationController, :create, as: :signup
     get "/login", SessionController, :new, as: :login
