@@ -60,6 +60,7 @@ defmodule LincolnProjectHubWeb.Router do
   scope "/amb", LincolnProjectHubWeb do
     pipe_through [:browser, :protected, :ambassador]
     get "/", AmbassadorController, :index
+    resources "/projects", ProjectController
   end
 
   scope "/sup", LincolnProjectHubWeb do

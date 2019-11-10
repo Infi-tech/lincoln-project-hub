@@ -17,19 +17,19 @@
   <div class="ui visible inverted left vertical sidebar menu">
     <a class="item">
       <i class="home icon"></i>
-      Home
+    Dashboard
     </a>
-    <a class="item">
+    <a class="item" href="<%= Routes.project_path(@conn, :new) %>">
       <i class="block layout icon"></i>
-      Topics
+     Projects
     </a>
     <a class="item">
       <i class="smile icon"></i>
-      Friends
+     Reports
     </a>
     <a class="item">
       <i class="calendar icon"></i>
-      History
+      Invite Supervisor
     </a>
   </div>
   <div class="pusher">
