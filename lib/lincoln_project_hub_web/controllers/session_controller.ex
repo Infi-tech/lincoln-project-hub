@@ -13,8 +13,16 @@ defmodule LincolnProjectHubWeb.SessionController do
     |> case do
       {:ok, conn} ->
         conn
+        |> IO.inspect()
         |> put_flash(:info, "Welcome back!")
-        |> redirect(to: Routes.page_path(conn, :index))
+        |> redirect_after_authentication()
+
+      # |> if role == "ambassador" do
+      #   redirect(to: Routes.ambassador_path(conn, :index))
+      # else
+      #   redirect(to: Routes.admin_path(conn, :index))
+      # end
+      # |> redirect(to: Routes.admin_path(conn, :index))
 
       {:error, conn} ->
         changeset = Pow.Plug.change_user(conn, conn.params["user"])
@@ -29,5 +37,21 @@ defmodule LincolnProjectHubWeb.SessionController do
     {:ok, conn} = Pow.Plug.clear_authenticated_user(conn)
 
     redirect(conn, to: Routes.page_path(conn, :index))
+  end
+
+  def redirect_after_authentication(conn) do
+    path =
+      case conn.assigns.current_user.role do
+        "administrator" ->
+          Routes.admin_path(conn, :index)
+
+        "ambassador" ->
+          Routes.ambassador_path(conn, :index)
+
+        "supervisor" ->
+          Routes.supervisor_path(conn, :index)
+      end
+
+    redirect(conn, to: path)
   end
 end

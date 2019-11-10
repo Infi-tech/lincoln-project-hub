@@ -52,17 +52,17 @@ defmodule LincolnProjectHubWeb.Router do
   end
 
   scope "/admin", LincolnProjectHubWeb do
-    pipe_through [:browser, :not_authenticated, :admin]
+    pipe_through [:browser, :protected, :admin]
     get "/", AdminController, :index
   end
 
   scope "/amb", LincolnProjectHubWeb do
-    pipe_through [:browser, :not_authenticated, :ambassador]
+    pipe_through [:browser, :protected, :ambassador]
     get "/", AmbassadorController, :index
   end
 
   scope "/sup", LincolnProjectHubWeb do
-    pipe_through [:browser, :not_authenticated, :supervisor]
+    pipe_through [:browser, :protected, :supervisor]
     get "/", SupervisorController, :index
   end
 
