@@ -27,7 +27,19 @@ defmodule LincolnProjectHub.Users.User do
 
   def changeset_role(user_or_changeset, attrs) do
     user_or_changeset
-    |> Ecto.Changeset.cast(attrs, [:role])
+    |> Ecto.Changeset.cast(attrs, [
+      :role,
+      :first_name,
+      :last_name,
+      :age,
+      :class,
+      :school,
+      :guardian_name,
+      :guardian_phone,
+      :guardian_email,
+      :emargency_name,
+      :emergency_phone
+    ])
     |> Ecto.Changeset.validate_inclusion(:role, ~w(ambassador admin sup))
   end
 end
