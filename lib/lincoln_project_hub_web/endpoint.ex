@@ -42,5 +42,7 @@ defmodule LincolnProjectHubWeb.Endpoint do
     key: "_lincoln_project_hub_key",
     signing_salt: "xIRxDUjN"
 
+  plug Pow.Plug.Session, otp_app: :lincoln_project_hub
+
   plug LincolnProjectHubWeb.Router
 end

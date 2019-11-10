@@ -1,0 +1,18 @@
+<div class="ui  two column centered grid container" id="login">
+<div class="column">
+<div class="ui form">
+<h1>Log in</h1>
+
+<%= form_for @changeset, Routes.login_path(@conn, :create), fn f -> %>
+<div class="field">
+  <%= text_input f, :email %>
+  </div>
+  <div class="field">
+  <%= password_input f, :password %>
+  </div>
+  <%= submit "Log in" , class: "fluid ui primary button" ,id: "login-btn"%>
+  <a class="fluid ui button" href="<%= Routes.signup_path(@conn, :new) %>">Register</a>
+<% end %>
+</div>
+</div>
+</div>

@@ -1,0 +1,100 @@
+<div class="ui form container">
+<h1>Ambassador Registration</h1>
+<%= form_for @changeset, Routes.signup_path(@conn, :create), fn f -> %>
+<div class="field">
+    <div class="two fields">
+      <div class="field">
+         <%= label f, :first_name, "First Name" %>
+         <div class="ui left icon input">
+           <%= text_input f, :first_name %>
+         </div>
+       
+      </div>
+      <div class="field">
+      <%= label f, :last_name, "Last Name" %>
+      <%= text_input f, :last_name %>
+      
+      </div>
+    </div>
+  </div>
+ <div class="field">
+  <%= label f, :email, "Email" %>
+  <%= email_input f, :email %>
+  <%= error_tag f, :email %>
+  </div>
+  <div class="field">
+  <div class="two fields">
+   <div class="field">
+  <%= label f, :password, "Password" %>
+  <%= password_input f, :password %>
+  <%= error_tag f, :password %>
+  </div>
+ <div class="field">
+  <%= label f, :confirm_password, "Confirm Password" %>
+  <%= password_input f, :confirm_password %>
+  <%= error_tag f, :confirm_password %>
+  </div>
+  </div>
+  </div>
+  <div class="field">
+  <div class="three fields">
+   <div class="field">
+      <%= label f, :age, "Age" %>
+      <%= text_input f, :age %>
+      
+      </div>
+       <div class="field">
+      <%= label f, :class, "Class" %>
+      <%= text_input f, :class %>
+      
+      </div>
+       <div class="field">
+      <%= label f, :school, "School" %>
+      <%= text_input f, :school %>
+      
+      </div>
+  </div>
+  </div>
+
+   <h4 class="ui dividing header">Guardian Details</h4>
+
+   <div class="field">
+  <div class="three fields">
+   <div class="field">
+      <%= label f, :guardian_name, "Guardian Name" %>
+      <%= text_input f, :guardian_name %>
+      
+      </div>
+       <div class="field">
+      <%= label f, :guardian_phone, "Guardian Phone" %>
+      <%= text_input f, :guardian_phone %>
+      
+      </div>
+       <div class="field">
+      <%= label f,:guardian_email, "Guardian Email" %>
+      <%= email_input f, :guardian_email %>
+      
+      </div>
+  </div>
+  </div>
+
+    <h4 class="ui dividing header">Emergency Contacts</h4>
+    <div class="field">
+  <div class="two fields">
+   <div class="field">
+  <%= label f, :emargency_name, "Name" %>
+  <%= text_input f, :emargency_name %>
+  
+  </div>
+ <div class="field">
+  <%= label f, :emergency_phone, "Phone Number" %>
+  <%= text_input f, :emergency_phone %>
+ 
+  </div>
+  </div>
+  </div>
+
+
+  <%= submit "Register" , class: "fluid ui button"%>
+<% end %>
+</div>

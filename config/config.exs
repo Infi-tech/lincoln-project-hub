@@ -17,6 +17,10 @@ config :lincoln_project_hub, LincolnProjectHubWeb.Endpoint,
   render_errors: [view: LincolnProjectHubWeb.ErrorView, accepts: ~w(html json)],
   pubsub: [name: LincolnProjectHub.PubSub, adapter: Phoenix.PubSub.PG2]
 
+config :lincoln_project_hub, :pow,
+  user: LincolnProjectHub.Users.User,
+  repo: LincolnProjectHub.Repo
+
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
